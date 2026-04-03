@@ -38,7 +38,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: proxy-bundle
-
+      - name: Install Apigee CLI
+        run: npm install -g apigeecli
       - name: Deploy API Proxy
         run: |
           apigeecli proxies create bundle \
