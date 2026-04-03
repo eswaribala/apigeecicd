@@ -42,7 +42,7 @@ jobs:
         run: npm install -g apigeecli
       - name: Debug secrets
         run: |
-         echo "Token length: ${#APIGEE_TOKEN}"
+         echo "Token length: ${{secrets.APIGEE_TOKEN}}"
         env:
          APIGEE_TOKEN: ${{ secrets.APIGEE_TOKEN }}
         
