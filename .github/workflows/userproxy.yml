@@ -40,6 +40,10 @@ jobs:
           name: proxy-bundle
       - name: Install Apigee CLI
         run: npm install -g apigeecli
+      - name: Debug secrets
+        run: echo "Token length: ${#APIGEE_TOKEN}"
+        env:
+        APIGEE_TOKEN: ${{ secrets.APIGEE_TOKEN }}
       - name: Deploy API Proxy
         run: |
           apigeecli proxies create bundle \
