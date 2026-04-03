@@ -45,7 +45,7 @@ jobs:
 
       - name: Debug secrets
         run: |
-          echo "Username: ${{ secrets.APIGEE_USERNAME }}
+          echo "Username": ${{ secrets.APIGEE_USERNAME }}
           
         env:
           APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
