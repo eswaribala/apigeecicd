@@ -30,30 +30,4 @@ jobs:
           name: proxy-bundle
           path: userproxy.zip
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: apigee   # 👈 must match the environment name where you stored secrets
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: proxy-bundle
-          path: ./proxy-bundle
-
-      - name: Install Apigee CLI
-        run: npm install -g apigeecli
-
-      - name: Deploy API Proxy
-        run: |
-          apigeecli proxies create bundle \
-            --org "$APIGEE_ORG" \
-            --env "$APIGEE_ENV" \
-            --token "$APIGEE_TOKEN" \
-            --file ./proxy-bundle/userproxy.zip
-        env:
-          APIGEE_ORG: ${{ secrets.APIGEE_ORG }}
-          APIGEE_ENV: ${{ secrets.APIGEE_ENV }}
-          APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
-          APIGEE_PASSWORD: ${{ secrets.APIGEE_PASSWORD }}
-          APIGEE_TOKEN: ${{ secrets.APIGEE_TOKEN }}
+ 
