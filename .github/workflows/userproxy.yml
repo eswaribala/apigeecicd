@@ -16,7 +16,7 @@ jobs:
         run: npm install -g apigeelint apigeecli
 
       - name: Unzip proxy bundle
-        run: unzip userproxy.zip -d ./apiproxy
+        run: unzip userproxy.zip 
 
       - name: Lint proxy
         run: apigeelint -s ./apiproxy
