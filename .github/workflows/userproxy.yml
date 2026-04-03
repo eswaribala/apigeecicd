@@ -38,18 +38,23 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: proxy-bundle
+
       - name: Install Apigee CLI
         run: npm install -g apigeecli
+
       - name: Debug secrets
         run: |
-         echo "Token length: ${{secrets.APIGEE_TOKEN}}"
+          echo "Username: $APIGEE_USERNAME"
+          echo "Password length: ${#APIGEE_PASSWORD}"
         env:
-         APIGEE_TOKEN: ${{ secrets.APIGEE_TOKEN }}
-        
+          APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
+          APIGEE_PASSWORD: ${{ secrets.APIGEE_PASSWORD }}
+
       - name: Deploy API Proxy
         run: |
           apigeecli proxies create bundle \
             --org ${{ secrets.APIGEE_ORG }} \
             --env ${{ secrets.APIGEE_ENV }} \
-            --token ${{ secrets.APIGEE_TOKEN }} \
+            --username ${{ secrets.APIGEE_USERNAME }} \
+            --password ${{ secrets.APIGEE_PASSWORD }} \
             --file proxy-bundle/userproxy.zip
