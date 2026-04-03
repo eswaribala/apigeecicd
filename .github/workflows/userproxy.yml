@@ -56,3 +56,4 @@ jobs:
           APIGEE_ENV: ${{ secrets.APIGEE_ENV }}
           APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
           APIGEE_PASSWORD: ${{ secrets.APIGEE_PASSWORD }}
+          APIGEE_TOKEN: ${{ secrets.APIGEE_TOKEN }}
