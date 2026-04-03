@@ -44,8 +44,8 @@ jobs:
 
       - name: Debug secrets
         run: |
-          echo "Username: $APIGEE_USERNAME"
-          echo "Password length: ${#APIGEE_PASSWORD}"
+          echo "Username: ${{ secrets.APIGEE_USERNAME }}
+          
         env:
           APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
           APIGEE_PASSWORD: ${{ secrets.APIGEE_PASSWORD }}
