@@ -33,12 +33,13 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment: apigee   # 👈 must match the environment name where you stored secrets
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: proxy-bundle
-          path: ./proxy-bundle   # ensure predictable location
+          path: ./proxy-bundle
 
       - name: Install Apigee CLI
         run: npm install -g apigeecli
@@ -56,4 +57,3 @@ jobs:
           APIGEE_ENV: ${{ secrets.APIGEE_ENV }}
           APIGEE_USERNAME: ${{ secrets.APIGEE_USERNAME }}
           APIGEE_PASSWORD: ${{ secrets.APIGEE_PASSWORD }}
-
