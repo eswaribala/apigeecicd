@@ -49,8 +49,7 @@ jobs:
           apigeecli proxies create bundle \
             --org "$APIGEE_ORG" \
             --env "$APIGEE_ENV" \
-            --username "$APIGEE_USERNAME" \
-            --password "$APIGEE_PASSWORD" \
+            --token "$APIGEE_TOKEN" \
             --file ./proxy-bundle/userproxy.zip
         env:
           APIGEE_ORG: ${{ secrets.APIGEE_ORG }}
