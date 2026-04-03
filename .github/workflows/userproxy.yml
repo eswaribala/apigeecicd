@@ -26,7 +26,7 @@ jobs:
             --org ${{ secrets.APIGEE_ORG }} \
             --env ${{ secrets.APIGEE_ENV }} \
             --token ${{ secrets.APIGEE_TOKEN }} \
-            --file ./apiproxy.zip
+            --file ./userproxy.zip
 
 
       # Runs a set of commands using the runners shell
